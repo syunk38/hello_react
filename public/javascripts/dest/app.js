@@ -8,7 +8,9 @@ var CommentBox = React.createClass({displayName: "CommentBox",
   }
 });
 
-React.render(
-    React.createElement(CommentBox, null),
-    document.getElementById('app-container')
-);
+window.onload = function() {
+  React.render(
+      React.createElement(CommentBox, null),
+      document.getElementById('app-container')
+  );
+}

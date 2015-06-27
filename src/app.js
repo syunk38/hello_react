@@ -7,7 +7,6 @@ var CommentBox = React.createClass({
     );
   }
 });
-
 window.onload = function() {
   React.render(
       <CommentBox />,
