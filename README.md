@@ -1,5 +1,13 @@
 ##6/28
 
+### component色々足した。
+* CommentListでComment呼んだり
+* this.props.childrenとか使ってみたり
+* htmlをエスケープしてみたり。
+* (まだ有用性がつかめない)
+* (Facebookを信じろ)
+* (Angulerって面白いのかな+（0ﾟ・∀・） + ﾜｸﾃｶ +)
+
 ###gulp dist追加
 * reactをクリーンコンパイルできるように
 * (Reactやろう。)
