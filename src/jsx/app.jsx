@@ -4,9 +4,6 @@ var CommentBox = React.createClass({
       <div className="commentBox">
         Hello React, world! I am a CommentBox.
       </div>
-      <p className"hoge">
-        hoge
-      </p>
     );
   }
 });

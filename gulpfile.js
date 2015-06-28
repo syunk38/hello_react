@@ -1,11 +1,11 @@
 'use strict'
 var gulp = require('gulp');
-var react = require('gulp-react');
-var sourcemaps = require('gulp-sourcemaps');
-var using = require('gulp-using');
 var plumber = require('gulp-plumber');  // エラー発生時もタスクを継続する
 
 gulp.task('react', function () {
+  var react = require('gulp-react');
+  var sourcemaps = require('gulp-sourcemaps');
+  
   return gulp.src('./src/jsx/*jsx')
   .pipe(plumber())
   .pipe(sourcemaps.init())

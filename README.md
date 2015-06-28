@@ -1,5 +1,10 @@
 ##6/27
 
+###gulp導入
+* .jsxファイルをWatch
+* package.jsonの整備。```npm install```でやんごとない感じになる。
+* (Reactやらなきゃ)
+
 ###Express向けにいろいろ書き直し
 昨日のpush忘れ分の反映。
 * jadeで書き直し。これやってると二度と普通のhtml書きたくなくなる。多分slimとかも同じなんやろうなと思いつつ。
