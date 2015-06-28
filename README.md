@@ -1,3 +1,6 @@
+##6/29
+* 続き→[Hook up the data model](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model)
+
 ##6/28
 
 ### component色々足した。
