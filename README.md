@@ -1,5 +1,12 @@
+#6/30
+* 続き[Fetching from the server](http://facebook.github.io/react/docs/tutorial.html#fetching-from-the-server)
+
 ##6/29
 * 続き→[Hook up the data model](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model)
+* gulpの整理
+* npm3.0.0化。
+* Commentのdataをハッシュから取得。からの仮想DOM生成して返す
+* 錦織ウィンブルドン初戦突破乙
 
 ##6/28
 

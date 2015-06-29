@@ -30,4 +30,4 @@ gulp.task('watch', function () {
 gulp.task('clean', ['clean-js-dest'])
 gulp.task('compile', ['react'])
 gulp.task('dist', ['clean', 'compile'])
-gulp.task('default', ['compile, watch'])
+gulp.task('default', ['compile', 'watch'])
