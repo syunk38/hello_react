@@ -16,12 +16,9 @@ gulp.task('react', function () {
 })
 
 gulp.task('clean-js-dest', function (cb) {
-  rimraf('./public/javascripts/dest/', cb)
+  rimraf('./public/javascripts/dest/*', cb)
 })
 
-gulp.task('clean', function() {
-
-})
 
 gulp.task('watch', function () {
   var watcher = gulp.watch('./src/**/*', ['compile'])
@@ -30,6 +27,7 @@ gulp.task('watch', function () {
   })
 })
 
+gulp.task('clean', ['clean-js-dest'])
 gulp.task('compile', ['react'])
 gulp.task('dist', ['clean', 'compile'])
 gulp.task('default', ['compile, watch'])
