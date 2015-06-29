@@ -24,16 +24,12 @@ gulp.task('clean', function() {
 })
 
 gulp.task('watch', function () {
-  var watcher = gulp.watch('./src/**/*', ['react'])
+  var watcher = gulp.watch('./src/**/*', ['compile'])
   watcher.on('change', function(event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
   })
 })
 
-gulp.task('dist', ['clean'], function (){
-  gulp.dest('react')
-})
-
-gulp.task('default', function () {
-  gulp.run('watch')
-})
+gulp.task('compile', ['react'])
+gulp.task('dist', ['clean', 'compile'])
+gulp.task('default', ['compile, watch'])
