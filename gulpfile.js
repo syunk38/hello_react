@@ -1,14 +1,14 @@
 'use strict'
 var gulp = require('gulp')
 var del = require('del')
-var plugins = require('gulp-load-plugins')()
+var $ = require('gulp-load-plugins')()
 
 gulp.task('react', function () {
   return gulp.src('./src/jsx/*jsx')
-  .pipe(plugins.plumber())
-  .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.react())
-  .pipe(plugins.sourcemaps.write('.'))
+  .pipe($.plumber())
+  .pipe($.sourcemaps.init())
+  .pipe($.react())
+  .pipe($.sourcemaps.write('.'))
   .pipe(gulp.dest('./public/javascripts/dest/'))
 })
 
