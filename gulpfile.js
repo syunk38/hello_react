@@ -1,6 +1,6 @@
 'use strict'
 var gulp = require('gulp')
-var rimraf = require('rimraf')
+var del = require('del')
 var plumber = require('gulp-plumber')  // エラー発生時もタスクを継続する
 
 gulp.task('react', function () {
@@ -16,7 +16,7 @@ gulp.task('react', function () {
 })
 
 gulp.task('clean-js-dest', function (cb) {
-  rimraf('./public/javascripts/dest/*', cb)
+  del(['./public/javascripts/dest/*'], cb)
 })
 
 

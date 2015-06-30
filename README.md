@@ -1,4 +1,13 @@
-#6/30
+##6/30
+###Gulp
+* rimraf→del
+```
+del@1.2.0
+  └─┬ rimraf@2.4.0
+    └── glob@4.5.3
+```
+↑のような構造のようなのでdelのほうが良さげ
+###React
 * 続き[Fetching from the server](http://facebook.github.io/react/docs/tutorial.html#fetching-from-the-server)
 
 ##6/29
