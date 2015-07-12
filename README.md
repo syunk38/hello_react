@@ -1,3 +1,11 @@
+##7/13
+間空きやしたサーセン
+* jsonからデータを取得
+* React側でjsonをajaxで取得してdataとして扱う
+* jsonファイルから読めるようにしたいね
+* expressでjson吐く方法がこれであってるんか謎。
+    *ていうかapp.postってのあるんかなぁ。
+
 ##6/30
 ###Gulp
 * rimraf→del
