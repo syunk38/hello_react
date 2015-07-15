@@ -70,4 +70,4 @@ window.onload = function() {
   );
 }
 
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=hello-react.js.map
