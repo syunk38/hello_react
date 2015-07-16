@@ -1,3 +1,17 @@
+var Comment = React.createClass({
+  render: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+      </div>
+    );
+  }
+});
+
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -14,8 +28,8 @@ var CommentBox = React.createClass({
   },
   handleCommentSubmit: function(comment) {
     var comments = this.state.data;
-    var newComments = comments.concat([comment]);
-    this.setState({data: newComments});
+    comments.push(comment);
+    this.setState({data: comments}, function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -90,23 +104,9 @@ var CommentForm = React.createClass({
   }
 });
 
-var Comment = React.createClass({
-  render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
 window.onload = function() {
   React.render(
-      <CommentBox url="http://localhost:3000/comments" pollInterval=""/>,
+      <CommentBox url="http://localhost:3000/comments" pollInterval={2000} />,
       document.getElementById('app-container')
   );
 }

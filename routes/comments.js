@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var fs = require('fs');
-var path = require('path');
 var jsonFilePath = process.cwd() + '/json/comments.json';
 
 router.get('/', function(req, res) {
@@ -11,7 +10,6 @@ router.get('/', function(req, res) {
     res.setHeader('Content-Encoding', 'utf-8');
     res.setHeader('Cache-Control', 'no-cache');
     res.json(JSON.parse(data));
-    //res.send(data)
   });
 });
 
