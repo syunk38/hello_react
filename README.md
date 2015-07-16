@@ -1,7 +1,12 @@
+##7/17
+###とりあえず完成
+* commentsにPOSTしてjsonファイルを書き換えられるように。
+* CommentBox.componentDidMountで```setInterval()```で何度もcomment.jsonを見に行ってたのが謎い。リアルタイム変更にしたかったのか？
+* ローカルで動かしてたのとIntervalの値('''pollInterval''')をセットし忘れていたのでMacが一瞬でストーブ化していた。
+* ポイントになりそうなメソッドとかをQiitaに書く。
 ##7/16
 ###静的ファイルからjson読み込み
 * やっとできたあああああ
-* key:valueのkeyをダブルクオートでくくってなかったというしょうもない原因。
 * react-tutorialでは```res.json(JSON.parse(data))```とparseしたjsonを再びjsonにエンコードして返してるけど、dataの中にjsonが入っているのにそのまま渡さない理由がよくわからない(´・ω・｀)。
 * もしかして：postの方も余裕(死亡フラグ)
 * とりあえずこれでReactの方が進む。

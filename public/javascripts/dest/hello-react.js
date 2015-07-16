@@ -1,18 +1,11 @@
-var Comment = React.createClass({displayName: "Comment",
-  render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      React.createElement("div", {className: "comment"}, 
-        React.createElement("h2", {className: "commentAuthor"}, 
-          this.props.author
-        ), 
-        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
-      )
-    );
-  }
-});
-
 var CommentBox = React.createClass({displayName: "CommentBox",
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    //setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
   loadCommentsFromServer: function() {
     $.ajax({
       url: this.props.url,
@@ -44,13 +37,6 @@ var CommentBox = React.createClass({displayName: "CommentBox",
       });
     });
   },
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-  },
   render: function() {
     return (
       React.createElement("div", {className: "commentBox"}, 
@@ -76,6 +62,20 @@ var CommentList = React.createClass({displayName: "CommentList",
     return (
       React.createElement("div", {className: "commentList"}, 
         commentNodes
+      )
+    );
+  }
+});
+
+var Comment = React.createClass({displayName: "Comment",
+  render: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      React.createElement("div", {className: "comment"}, 
+        React.createElement("h2", {className: "commentAuthor"}, 
+          this.props.author
+        ), 
+        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
       )
     );
   }
