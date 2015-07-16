@@ -1,3 +1,17 @@
+var Comment = React.createClass({displayName: "Comment",
+  render: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      React.createElement("div", {className: "comment"}, 
+        React.createElement("h2", {className: "commentAuthor"}, 
+          this.props.author
+        ), 
+        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
+      )
+    );
+  }
+});
+
 var CommentBox = React.createClass({displayName: "CommentBox",
   loadCommentsFromServer: function() {
     $.ajax({
@@ -14,19 +28,20 @@ var CommentBox = React.createClass({displayName: "CommentBox",
   },
   handleCommentSubmit: function(comment) {
     var comments = this.state.data;
-    var newComments = comments.concat([comment]);
-    this.setState({data: newComments});
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: comment,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
+    comments.push(comment);
+    this.setState({data: comments}, function() {
+      $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        type: 'POST',
+        data: comment,
+        success: function(data) {
+          this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
     });
   },
   getInitialState: function() {
@@ -90,23 +105,9 @@ var CommentForm = React.createClass({displayName: "CommentForm",
   }
 });
 
-var Comment = React.createClass({displayName: "Comment",
-  render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      React.createElement("div", {className: "comment"}, 
-        React.createElement("h2", {className: "commentAuthor"}, 
-          this.props.author
-        ), 
-        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
-      )
-    );
-  }
-});
-
 window.onload = function() {
   React.render(
-      React.createElement(CommentBox, {url: "http://localhost:3000/comments", pollInterval: ""}),
+      React.createElement(CommentBox, {url: "http://localhost:3000/comments", pollInterval: 2000}),
       document.getElementById('app-container')
   );
 }
