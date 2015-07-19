@@ -1,9 +1,15 @@
+##7/19
+* Qiita書いた。
+http://qiita.com/ShuntaroKuroki/items/e5bb003f7dc0691bb695
+  * 日本語が不自由なクソ記事になりました(^q^)
+
 ##7/17
 ###とりあえず完成
 * commentsにPOSTしてjsonファイルを書き換えられるように。
 * CommentBox.componentDidMountで```setInterval()```で何度もcomment.jsonを見に行ってたのが謎い。リアルタイム変更にしたかったのか？
 * ローカルで動かしてたのとIntervalの値('''pollInterval''')をセットし忘れていたのでMacが一瞬でストーブ化していた。
 * ポイントになりそうなメソッドとかをQiitaに書く。
+
 ##7/16
 ###静的ファイルからjson読み込み
 * やっとできたあああああ
