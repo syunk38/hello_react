@@ -1,3 +1,7 @@
+##7/20
+* scriptを各jadeで個別に設定できるように
+* cookpadフォームを作る土台作成
+
 ##7/19
 * Qiita書いた。
 http://qiita.com/ShuntaroKuroki/items/e5bb003f7dc0691bb695
